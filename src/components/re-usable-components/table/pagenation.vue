@@ -30,7 +30,7 @@ export default class Pagenation extends Vue {
     return new Array(this.pages).fill('').map((v, i) => i + 1);
   }
   public get pages(): number {
-    return Math.ceil(this.totalRecords / 10);
+    return Math.ceil(this.totalRecords / 15);
   }
 
   public pageSelectionChange(page: number): void {

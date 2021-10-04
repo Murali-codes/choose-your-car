@@ -21,8 +21,8 @@
 import { Component, Prop, Vue , Emit} from 'vue-property-decorator';
 
 import {Filters} from '@/store/modules/types';
-import Pagenation from './Pagenation.vue';
-import TableHeader from './ColumnsHeader.vue';
+import Pagenation from './pagenation.vue';
+import TableHeader from './table-header.vue';
 
 
 @Component({
@@ -34,11 +34,11 @@ import TableHeader from './ColumnsHeader.vue';
 export default class Table extends Vue {
 
   public get rowsToDisplay(): number[] {
-    const startIndex =  (this.pageSelected - 1) * 10;
-    return this.data.slice(startIndex, startIndex + 10);
+    const startIndex =  (this.pageSelected - 1) * 15;
+    return this.data.slice(startIndex, startIndex + 15);
   }
 
-  public readonly numberOfRowsInTable = 10;
+  public readonly numberOfRowsInTable = 15;
   @Prop({default: []}) public data!: any;
   @Prop({default: []}) public columns: any;
 
@@ -63,12 +63,13 @@ export default class Table extends Vue {
 #table {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 98vw;
+  width: calc(100% - 16px);
 }
 
 #table td, #table th {
   border: 1px solid #ddd;
   padding: 8px;
+  width: calc(20% - 16px)
 }
 
 #table tr:hover {background-color: #ddd;}
@@ -84,9 +85,9 @@ export default class Table extends Vue {
   text-overflow: ellipsis;
 }
 .table-container{
-  width: 98vw;
+  width: calc(100% - 16px);
   padding: 0 1vw 0 1vw;
-  overflow: scroll;
+  overflow: auto;
 }
 .selected{
   background-color: lightblue;

@@ -130,4 +130,7 @@ export default class SortAndFilter extends Vue {
     flex-direction: row;
     justify-content: space-around;
 }
+button{
+    padding:0 !important;
+}
 </style>

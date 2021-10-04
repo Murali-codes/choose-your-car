@@ -2,7 +2,7 @@
   <tr>
         <th v-for="col in columns" :key="col.propertyName">
             {{col.label}}
-            <SortAndFilter v-if="col.canFilteredOfSorted" :property="col" :clickedProperty="clickedProperty" @icon-click="iconClick(col.propertyName)" @filters-changed="updateFilters($event, col.propertyName)"/> 
+            <SortAndFilter :property="col" :clickedProperty="clickedProperty" @icon-click="iconClick(col.propertyName)" @filters-changed="updateFilters($event, col.propertyName)"/> 
         </th>
         </tr>
 </template>
@@ -10,7 +10,7 @@
 <script lang="ts">
 import { Filters } from '@/store/modules/types';
 import { Component, Prop, Vue , Emit, Watch} from 'vue-property-decorator';
-import SortAndFilter from './SortAndFilter.vue';
+import SortAndFilter from './sort-and-filter.vue';
 @Component({
     components: {
         SortAndFilter
@@ -50,6 +50,6 @@ th {
   padding: 8px;
     font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: 20%;
 }
 </style>

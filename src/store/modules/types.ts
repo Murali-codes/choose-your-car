@@ -24,10 +24,36 @@ export interface CarsState {
     selectedMake: string;
     selectedModel: string;
     selectedVehicle: null | Vehicle;
-    filtersApplied: Filters;
-    error: string;
-    info: string;
-  }
+    filtersApplied: Record<string, Filters | null>;
+    filteredData: Vehicle[];
+    toastInfo: IToastInfo ;
+    isFetchingDataInProgress: {
+      models: boolean,
+      makes: boolean,
+      vehicles: boolean,
+      [key: string]: boolean
+    };
+    sortBy: string;
+    sortOrder: string;
+}
 
+export interface IToastInfo {
+  type: string;
+  message: string;
+}
 
+export enum ToastMessageTypes {
+  Error = 'error',
+  Info = 'info'
+}
+
+export enum ToastMessages {
+  Error = 'Error occurred. Please try again later !',
+  Info = 'Sorry we do not have vehicles for the choose combination'
+}
+
+export interface ISort {
+sortOrder: string;
+sortBy: string;
+}
 

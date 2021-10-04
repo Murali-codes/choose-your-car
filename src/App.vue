@@ -1,20 +1,13 @@
 <template>
   <div id="app">
-    <div id="content">
-        <HelloWorld/>
-    </div>
+        <router-view/>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue } from 'vue-property-decorator';
 import Component from 'vue-class-component';
-import HelloWorld from '@/components/MakeAndModel.vue';
-@Component({
-  components: {
-    HelloWorld
-  }
-})
+@Component
 export default class Counter extends Vue {
 }
 </script>
@@ -25,11 +18,30 @@ export default class Counter extends Vue {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-
-  #content {
-    min-height: 100vh;
-    background-color: #F8F8F8;
-    display: grid
-  }
+  height: 100%;
 }
 </style>
+<style>
+#app{
+  --input-elm-focus-border-color :#07f;
+  --input-elm-focus-border-shadow: 0 0 0 2px rgba(0,119,255,0.2);
+  --input-elm-focus-outline: none;
+  --svg-arrow-storke-color: #07f;
+}
+
+button {
+  background-color: rgb(74, 156, 177);
+  border: none;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px solid var(--input-elm-focus-border-color);
+}
+
+</style>
+
